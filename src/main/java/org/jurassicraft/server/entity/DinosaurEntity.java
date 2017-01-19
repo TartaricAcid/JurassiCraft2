@@ -619,7 +619,7 @@ public abstract class DinosaurEntity extends EntityCreature implements IEntityAd
 
                 if (this.order == Order.WANDER) {
                     if (this.herd.state == Herd.State.STATIC && this.getAttackTarget() == null && !this.metabolism.isThirsty() && !this.metabolism.isHungry() && this.getNavigator().noPath()) {
-                        if (!this.isSleeping && !this.isInWater() && this.getAnimation() == DinosaurAnimation.IDLE.get() && this.rand.nextInt(400) == 0) {
+                        if (!this.isSleeping && !this.isInWater() && !this.isInLava() && this.onGround && this.getAnimation() == DinosaurAnimation.IDLE.get() && this.rand.nextInt(400) == 0) {
                             this.setAnimation(DinosaurAnimation.RESTING.get());
                             this.isSittingNaturally = true;
                         }
